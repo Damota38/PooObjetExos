@@ -1,6 +1,6 @@
 <?php
 
-//Exo 4 : Encapsulation
+//Exo 4 : Encapsulation_______________________________________________________
 
 class Produit {
     private $nom;
@@ -11,6 +11,7 @@ class Produit {
         $this->nom = $nom;
         $this->prix = $prix;
         $this->quantite = $quantite;
+        //Ou $this->setQuantite($quantite); utilise le setter pour valider
     }
 
     //Guetters
@@ -70,5 +71,6 @@ try {
 } catch (Exception $e) {
     echo "\nErreur : " . $e->getMessage() . "\n";
 }
+//___________________________________________________________________________
 
 ?>
