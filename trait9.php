@@ -1,6 +1,6 @@
 <?php
 
-//Exo 9 : Les traits
+//Exo 9 : Les traits_____________________________________________________________________
 
 trait Horodatable {
     private $dateCreation;
@@ -110,5 +110,6 @@ $doc->afficherInfo();
 echo "\n Restauration \n";
 $doc->restaurer();
 $doc->afficherInfo();
+//_______________________________________________________________________________________
 
 ?>
