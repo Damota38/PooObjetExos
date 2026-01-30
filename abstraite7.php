@@ -35,7 +35,7 @@ class Rectangle extends Forme {
     }
 
     public function calculerPerimetre() {
-        return 2 * ($this->longueur = $this->largeur);
+        return 2 * ($this->longueur + $this->largeur);
     }
 }
 
