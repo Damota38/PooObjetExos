@@ -1,0 +1,230 @@
+Exercices de Programmation Orientée Objet en PHP
+Du débutant au niveau avancé
+Introduction
+Ce document contient une série d'exercices progressifs pour maîtriser la Programmation Orientée Objet (POO) en PHP. Chaque exercice est accompagné d'objectifs pédagogiques clairs, de conseils et de suggestions pour aller plus loin.
+Structure des exercices :
+•	Niveau Débutant : Classes, objets, propriétés et méthodes de base
+•	Niveau Intermédiaire : Héritage, encapsulation, constructeurs
+•	Niveau Avancé : Polymorphisme, interfaces, traits, patterns
+
+
+Niveau 1 : Débutant
+
+
+Exercice 1 : Ma première classe
+
+Objectifs :
+•	Comprendre la syntaxe de base d'une classe
+•	Créer des propriétés et des méthodes simples
+•	Instancier un objet
+Consigne :
+Créez une classe Personne avec les propriétés suivantes :
+•	$nom (string)
+•	$prenom (string)
+•	$age (int)
+Ajoutez une méthode sePresenter() qui retourne une chaîne du type : "Je m'appelle Jean Dupont et j'ai 25 ans."
+Créez ensuite deux instances de cette classe avec des valeurs différentes et affichez leur présentation.
+  Conseil :
+Utilisez le mot-clé $this pour accéder aux propriétés de l'objet depuis une méthode.
+
+
+Exercice 2 : Le constructeur
+
+Objectifs :
+•	Comprendre le rôle d'un constructeur
+•	Initialiser les propriétés lors de la création de l'objet
+Consigne :
+Reprenez la classe Personne et ajoutez-lui un constructeur __construct() qui prend en paramètres le nom, le prénom et l'âge, et initialise les propriétés correspondantes.
+Modifiez ensuite votre code pour créer des instances en utilisant ce constructeur.
+  Conseil :
+Pensez à utiliser la syntaxe PHP 8 avec la promotion de propriétés dans le constructeur pour un code plus concis.
+
+
+Exercice 3 : Calculer avec une classe
+
+Objectifs :
+•	Créer des méthodes avec des paramètres
+•	Manipuler les valeurs de retour
+Consigne :
+Créez une classe CompteBancaire avec :
+•	Une propriété $solde
+•	Une méthode deposer($montant) qui ajoute le montant au solde
+•	Une méthode retirer($montant) qui retire le montant du solde
+•	Une méthode afficherSolde() qui affiche le solde actuel
+Testez votre classe en effectuant plusieurs opérations de dépôt et retrait.
+  Bonus :
+Ajoutez une vérification pour empêcher le retrait si le solde est insuffisant.
+
+
+Niveau 2 : Intermédiaire
+
+
+Exercice 4 : L'encapsulation
+
+Objectifs :
+•	Comprendre les niveaux de visibilité (public, private, protected)
+•	Utiliser des getters et setters
+•	Valider les données avant modification
+Consigne :
+Créez une classe Produit avec des propriétés privées :
+•	$nom (string)
+•	$prix (float)
+•	$quantite (int)
+Créez des getters pour toutes les propriétés et des setters pour le prix et la quantité.
+Dans le setter du prix, vérifiez que le prix est positif. Dans le setter de quantité, vérifiez que la quantité est >= 0.
+Ajoutez une méthode calculerValeurStock() qui retourne le prix multiplié par la quantité.
+  Conseil :
+Lancez une exception si les valeurs ne sont pas valides dans les setters.
+
+
+Exercice 5 : L'héritage
+
+Objectifs :
+•	Comprendre le concept d'héritage
+•	Utiliser le mot-clé extends
+•	Surcharger des méthodes
+Consigne :
+Créez une classe de base Vehicule avec :
+•	Des propriétés : $marque, $modele, $annee
+•	Une méthode demarrer() qui affiche "Le véhicule démarre"
+•	Une méthode getInfo() qui retourne les informations du véhicule
+Créez deux classes filles Voiture et Moto qui héritent de Vehicule.
+•	Voiture ajoute une propriété $nombrePortes
+•	Moto ajoute une propriété $typeMoto (sportive, routière, etc.)
+Surchargez la méthode demarrer() dans chaque classe fille pour afficher un message spécifique.
+  Bonus :
+Utilisez parent::demarrer() dans les méthodes surchargées pour appeler la méthode parent.
+
+
+Exercice 6 : Les méthodes et propriétés statiques
+
+Objectifs :
+•	Comprendre la différence entre statique et instance
+•	Utiliser le mot-clé static
+•	Accéder aux membres statiques avec ::
+Consigne :
+Créez une classe Compteur avec :
+•	Une propriété statique privée $count = 0
+•	Une méthode statique incrementer()
+•	Une méthode statique getCount()
+•	Une méthode statique reset()
+Testez en appelant ces méthodes plusieurs fois et en affichant la valeur du compteur.
+  Bonus :
+Créez une classe Utilisateur qui incrémente automatiquement ce compteur dans son constructeur pour compter le nombre d'utilisateurs créés.
+
+
+Niveau 3 : Avancé
+
+
+Exercice 7 : Les classes abstraites
+
+Objectifs :
+•	Comprendre le rôle des classes abstraites
+•	Définir des méthodes abstraites
+•	Forcer l'implémentation dans les classes filles
+Consigne :
+Créez une classe abstraite Forme avec :
+•	Une propriété protégée $couleur
+•	Une méthode abstraite calculerSurface()
+•	Une méthode abstraite calculerPerimetre()
+•	Une méthode concrète afficherInfo() qui affiche la couleur, surface et périmètre
+Créez trois classes concrètes : Rectangle, Cercle et Triangle qui étendent Forme et implémentent les méthodes abstraites.
+  Conseil :
+Pour le cercle, utilisez la constante M_PI de PHP.
+
+
+Exercice 8 : Les interfaces
+
+Objectifs :
+•	Comprendre la différence entre interface et classe abstraite
+•	Implémenter plusieurs interfaces
+•	Utiliser le polymorphisme
+Consigne :
+Créez les interfaces suivantes :
+•	Stockable : avec les méthodes sauvegarder() et charger()
+•	Exportable : avec les méthodes exporterJSON() et exporterCSV()
+Créez une classe Article qui implémente ces deux interfaces avec des propriétés $id, $titre, $contenu, $auteur.
+Implémentez toutes les méthodes requises. Pour la sauvegarde, vous pouvez simuler en affichant un message.
+  Bonus :
+Créez une fonction générique qui accepte n'importe quel objet Exportable et l'exporte dans les deux formats.
+
+
+Exercice 9 : Les traits
+
+Objectifs :
+•	Comprendre la réutilisation de code avec les traits
+•	Résoudre les conflits de traits
+Consigne :
+Créez les traits suivants :
+•	Horodatable : ajoute les propriétés $dateCreation et $dateModification avec des méthodes creer() et modifier()
+•	Archivable : ajoute $archive (bool) avec méthodes archiver() et restaurer()
+Créez une classe Document qui utilise ces deux traits et possède aussi des propriétés $titre et $contenu.
+  Conseil :
+Utilisez use Trait1, Trait2; dans la classe pour inclure plusieurs traits.
+
+
+Exercice 10 : Le pattern Singleton
+
+Objectifs :
+•	Comprendre et implémenter un design pattern
+•	Garantir une instance unique
+Consigne :
+Créez une classe Configuration qui implémente le pattern Singleton :
+•	Le constructeur doit être privé
+•	Créez une propriété statique privée pour stocker l'instance unique
+•	Créez une méthode statique getInstance() qui retourne l'instance
+•	Ajoutez un tableau $parametres et des méthodes pour get/set des paramètres
+Testez en récupérant l'instance à plusieurs endroits et vérifiez qu'il s'agit toujours de la même instance.
+  Bonus :
+Empêchez le clonage de l'instance en rendant __clone() privée.
+
+
+Projet Final : Système de Gestion de Bibliothèque
+
+Objectif global :
+Créer un système complet qui utilise tous les concepts de POO appris.
+Spécifications :
+1.	Classe abstraite Media avec propriétés communes (titre, auteur, année, disponible)
+2.	Classes concrètes Livre, DVD, Magazine héritant de Media
+3.	Interface Empruntable avec méthodes emprunter(), retourner(), getStatut()
+4.	Classe Utilisateur avec liste des emprunts
+5.	Classe Bibliotheque (Singleton) qui gère le catalogue et les emprunts
+6.	Trait Horodatable pour tracer les dates d'emprunt/retour
+Fonctionnalités à implémenter :
+•	Ajouter des médias au catalogue
+•	Rechercher des médias par titre, auteur ou type
+•	Emprunter et retourner des médias
+•	Gérer une limite d'emprunts par utilisateur (3 maximum)
+•	Afficher l'historique des emprunts d'un utilisateur
+•	Générer des statistiques (nombre total de médias, taux d'emprunt, etc.)
+    Conseils :
+•	Commencez par modéliser vos classes sur papier
+•	Implémentez progressivement, en testant chaque fonctionnalité
+•	Utilisez des exceptions pour gérer les erreurs
+•	Pensez à l'encapsulation : utilisez private/protected
+•	Commentez votre code et utilisez des noms de variables explicites
+    Extensions possibles :
+•	Système de pénalités pour les retards
+•	Système de réservation
+•	Catégories et tags pour les médias
+•	Export de l'inventaire en JSON/CSV
+•	Système de notation et de commentaires
+
+
+Conclusion et Ressources
+Félicitations !
+Si vous avez terminé tous ces exercices, vous avez maintenant une solide compréhension de la POO en PHP. Ces concepts sont fondamentaux pour créer des applications robustes et maintenables.
+Points clés à retenir :
+•	Encapsulation : Protégez vos données avec private/protected
+•	Héritage : Réutilisez le code et créez des hiérarchies logiques
+•	Polymorphisme : Utilisez les interfaces pour créer du code flexible
+•	Abstraction : Définissez des contrats avec classes abstraites et interfaces
+•	Composition : Utilisez les traits pour réutiliser du code sans héritage
+Pour aller plus loin :
+•	Étudiez les design patterns (Factory, Observer, Strategy, etc.)
+•	Apprenez les principes SOLID
+•	Explorez les frameworks PHP modernes (Symfony, Laravel)
+•	Pratiquez les tests unitaires avec PHPUnit
+•	Découvrez PSR (PHP Standards Recommendations)
+N'oubliez pas : la pratique est essentielle. Codez régulièrement, créez vos propres projets et n'hésitez pas à refactoriser votre code pour l'améliorer !
+Bon apprentissage !
